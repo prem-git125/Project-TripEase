@@ -1,0 +1,18 @@
+const fetchData = () => {
+        fetch(`http://localhost:7000/api/profile/${uid}`)
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error(`HTTP error status ${res.status}`)
+                }
+                return res.json();
+            })
+            .then(values => {
+                setData(values[0])
+                console.log(data)
+
+            })
+            .catch(err => alert(err))
+    }
+    useEffect(() => {
+        fetchData()
+    }, [data])
